@@ -37,6 +37,7 @@ const logger = require('./logger');
 app.use(pinoHttp({ logger }));
 
 // Use Routes
+app.use('/api/auth', authRoutes);
 // Gift API Task 2: add the giftRoutes to the server by using the app.use() method.
 //{{insert code here}}
 
