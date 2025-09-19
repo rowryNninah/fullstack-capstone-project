@@ -55,7 +55,7 @@ router.post('/register', async (req, res) => {
         logger.info("Registered Successfully");
         return res.json({ token, email });
     } catch (e) {
-        logger.error(e)
+        logger.error("Register failed: ", e)
         return res.status(500).send("Internal server error")
     }
 });
@@ -103,7 +103,7 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (e) {
-        logger.error(e);
+        logger.error("Login failed: ", e);
         return res.status(500).send('Internal server error');
     }
 });
@@ -147,32 +147,31 @@ router.put('/update', [
             logger.error("user not found")
             return res.status(404).json({ message: "User not found" })
         }
-        // existingUser.updatedAt = new Date();
 
         // Task 6: update user credentials in database
-        const { firstName, lastName, password } = req.body;
-
-        const updates = { updatedAt: new Date() }
-        if (firstName) updates.firstName = firstName;
-        if (lastName) updates.lastName = lastName;
-        if (password) {
-            const salt = await bcryptjs.genSalt(10);
-            updates.password = await bcryptjs.hash(password, salt)
-        }
+        existingUser.firstName = req.body.name;
+        existingUser.updatedAt = new Date();
 
         const updatedUser = await collection.findOneAndUpdate(
             { email },
-            { $set: updates },
+            { $set: existingUser },
             { returnDocument: 'after' } 
           );
 
+          if (!updatedUser) {
+            logger.error(`Update failed: Could not update user - ${email}`);
+            return res.status(500).json({ message: "Failed to update user" });
+          }
+
         // Task 7: create JWT authentication using secret key from .env file
-        const payload = { user: { id: updatedUser.value._id.toString() } }
+        const payload = { user: { id: updatedUser._id.toString() } }
         const token = jwt.sign(payload, JWT_SECRET)
         logger.info("User updated successfully")
-        return res.json({ token });
+        return res.json({ token, email });
 
     } catch (e) {
+        logger.error("Update failed: ", e.message)
+        console.log(e)
         return res.status(500).send('Internal server error');
 
     }
