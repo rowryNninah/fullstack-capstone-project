@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { urlConfig } from '../../config';
 
+
+import "./SearchPage.css";
 function SearchPage() {
 
     //Task 1: Define state variables for the search query, age range, and search results.
@@ -70,6 +72,7 @@ function SearchPage() {
 
 
     return (
+        <div className="searchpage-background">
         <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6">
@@ -143,6 +146,7 @@ function SearchPage() {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

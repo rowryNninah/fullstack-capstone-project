@@ -1,65 +1,73 @@
 /* Add this CSS to your existing styles or create a new CSS file */
 
+
 .profile-container {
-    max-width: 400px;
-    margin: 15% auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 4px;
-  }
-  
-  .profile-container h1 {
-    margin-top: 0;
-  }
-  
-  .profile-container form {
-    margin-bottom: 20px;
-  }
-  
-  .profile-container label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .profile-container input[type="text"],
-  .profile-container input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .profile-container button {
-    display: block;
-    width: 100%;
-    padding: 8px;
-    background-color: #2190ff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .profile-details {
-    background-color: #fff;
-    border-radius: 4px;
-    padding: 20px;
-  }
-  
-  .profile-details h2 {
-    margin-top: 0;
-  }
-  
-  .profile-details p {
-    margin-bottom: 10px;
-  }
-  
-  .profile-details button {
-    background-color: #2190ff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 12px;
-    cursor: pointer;
-  }
+  max-width: 400px;
+  margin: 10% auto;
+  padding: 2rem;
+  background: rgba(255,255,255,0.97);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+}
+.profile-container h1 {
+  margin-top: 0;
+  color: #c57dc3;
+  font-weight: 700;
+}
+.profile-container form {
+  margin-bottom: 20px;
+}
+.profile-container label {
+  display: block;
+  margin-bottom: 10px;
+  color: #c57dc3;
+  font-weight: 600;
+}
+.profile-container input[type="text"],
+.profile-container input[type="email"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e7d6f7;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.profile-container button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: #cf9ee7;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.profile-container button:hover {
+  background: #c57dc3;
+}
+.profile-details {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+}
+.profile-details h2 {
+  margin-top: 0;
+}
+.profile-details p {
+  margin-bottom: 10px;
+}
+.profile-details button {
+  background: #cf9ee7;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.profile-details button:hover {
+  background: #c57dc3;
+}
   

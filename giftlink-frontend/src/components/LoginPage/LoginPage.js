@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 import './LoginPage.css';
 
+
+import "./LoginPage.css";
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -77,8 +79,9 @@ function LoginPage() {
       }
 
 
-    return (
-        <div className="container mt-5">
+  return (
+    <div style={{minHeight: '100vh', background: 'linear-gradient(120deg, #f4f4f4 60%, #e7d6f7 100%)'}}>
+    <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6 col-lg-4">
                     <div className="login-card p-4 border rounded">
@@ -114,8 +117,9 @@ function LoginPage() {
                     </div>
                 </div>
             </div>
-        </div>
-    );
+    </div>
+    </div>
+  );
 }
 
 export default LoginPage;

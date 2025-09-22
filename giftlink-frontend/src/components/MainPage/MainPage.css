@@ -1,0 +1,60 @@
+/* MainPage.css - Modern, clean style inspired by home.css */
+
+.mainpage-background {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f4f4f4 60%, #e7d6f7 100%);
+  padding: 40px 0;
+}
+
+.product-card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s;
+  border: none;
+}
+.product-card:hover {
+  box-shadow: 0 10px 32px rgba(197,125,195,0.15);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 220px;
+  background: #f8e6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.no-image-available {
+  color: #c57dc3;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-title {
+  color: #c57dc3;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.card-text {
+  color: #555;
+  font-size: 1rem;
+}
+.btn-primary {
+  background: #cf9ee7;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #c57dc3;
+}

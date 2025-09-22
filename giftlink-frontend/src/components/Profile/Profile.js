@@ -104,41 +104,42 @@ const handleSubmit = async (e) => {
   }
 };
 
-return (
-<div className="profile-container">
-  {editMode ? (
-<form onSubmit={handleSubmit}>
-<label>
-  Email
-  <input
-    type="email"
-    name="email"
-    value={userDetails.email}
-    disabled // Disable the email field
-  />
-</label>
-<label>
-   Name
-   <input
-     type="text"
-     name="name"
-     value={updatedDetails.name}
-     onChange={handleInputChange}
-   />
-</label>
-
-<button type="submit">Save</button>
-</form>
-) : (
-<div className="profile-details">
-<h1>Hi, {userDetails.name}</h1>
-<p> <b>Email:</b> {userDetails.email}</p>
-<button onClick={handleEdit}>Edit</button>
-<span style={{color:'green',height:'.5cm',display:'block',fontStyle:'italic',fontSize:'12px'}}>{changed}</span>
-</div>
-)}
-</div>
-);
+  return (
+    <div style={{minHeight: '100vh', background: 'linear-gradient(120deg, #f4f4f4 60%, #e7d6f7 100%)'}}>
+      <div className="profile-container">
+        {editMode ? (
+          <form onSubmit={handleSubmit}>
+            <label>
+              Email
+              <input
+                type="email"
+                name="email"
+                value={userDetails.email}
+                disabled // Disable the email field
+              />
+            </label>
+            <label>
+              Name
+              <input
+                type="text"
+                name="name"
+                value={updatedDetails.name}
+                onChange={handleInputChange}
+              />
+            </label>
+            <button type="submit">Save</button>
+          </form>
+        ) : (
+          <div className="profile-details">
+            <h1>Hi, {userDetails.name}</h1>
+            <p> <b>Email:</b> {userDetails.email}</p>
+            <button onClick={handleEdit}>Edit</button>
+            <span style={{color:'green',height:'.5cm',display:'block',fontStyle:'italic',fontSize:'12px'}}>{changed}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Profile;
