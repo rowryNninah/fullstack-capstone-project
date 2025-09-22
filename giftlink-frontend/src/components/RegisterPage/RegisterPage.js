@@ -32,8 +32,8 @@ function RegisterPage() {
             });
 
             const data = await response.json();
-            if (response.ok && data.authtoken) {
-                sessionStorage.setItem("auth-token", data.authtoken);
+            if (response.ok && data.token) {
+                sessionStorage.setItem("auth-token", data.token);
                 sessionStorage.setItem("name", firstName);
                 sessionStorage.setItem("email", data.email);
 

@@ -51,17 +51,14 @@ function LoginPage() {
             
             const json = await res.json();
             console.log('Json',json);
-            if (json.authtoken) {
-               
-              sessionStorage.setItem('auth-token', json.authtoken);
+            if (json.token) {
+              sessionStorage.setItem('auth-token', json.token);
               sessionStorage.setItem('name', json.userName);
               sessionStorage.setItem('email', json.userEmail);
-                
               setIsLoggedIn(true);
-              
+              console.log('Navigating to /app');
               navigate('/app');
             } else {
-               
               setEmail("");
               setPassword("");
               setIncorrect("Wrong password. Try again.");

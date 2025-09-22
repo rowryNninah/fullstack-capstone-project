@@ -33,8 +33,11 @@ router.get("/", async (req, res, next) => {
 
     // Task 4: Fetch filtered gifts using the find(query) method. Make sure to use await and store the result in the `gifts` constant
     const gifts = await collection.find(query).toArray();
-
-    res.json(gifts);
+    const giftsWithId = gifts.map(gift => ({
+      ...gift,
+      id: gift.id || (gift._id ? gift._id.toString() : undefined),
+    }));
+    res.json(giftsWithId);
   } catch (e) {
     next(e);
   }
