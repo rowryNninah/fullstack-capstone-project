@@ -11,6 +11,8 @@ function SearchPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [ageRange, setAgeRange] = useState(6);
     const [searchResults, setSearchResults] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedCondition, setSelectedCondition] = useState("");
     const categories = ['Living', 'Bedroom', 'Bathroom', 'Kitchen', 'Office'];
     const conditions = ['New', 'Like New', 'Older'];
 
@@ -43,8 +45,8 @@ function SearchPage() {
         const queryParams = new URLSearchParams({
             name: searchQuery,
             age_years: ageRange,
-            category: document.getElementById("categorySelect").ariaValueMax,
-            condition: document.getElementById("conditionSelect").ariaValueMax,
+            category: selectedCategory,
+            condition: selectedCondition,
         }).toString();
 
         try {
@@ -57,7 +59,7 @@ function SearchPage() {
             setSearchResults(results)
 
         } catch (e) {
-            console.error("Grror getting results:", e)
+            console.error("Error getting results:", e)
         }
     }
 
@@ -81,7 +83,7 @@ function SearchPage() {
                         <div className="d-flex flex-column">
                             {/* Task 3: Dynamically generate category and condition dropdown options.*/}
                             <label htmlFor="categorySelect">Category</label>
-                            <select id="categorySelect" className="form-control my-1">
+                            <select id="categorySelect" className="form-control my-1" value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
                                 <option value="">All</option>
                                 {categories.map(category => (
                                     <option key={category} value={category}>{category}</option>
@@ -89,7 +91,7 @@ function SearchPage() {
                             </select>
 
                             <label htmlFor="conditionSelect">Condition</label>
-                            <select id="conditionSelect" className="form-control my-1">
+                            <select id="conditionSelect" className="form-control my-1" value={selectedCondition} onChange={e => setSelectedCondition(e.target.value)}>
                                 <option value="">All</option>
                                 {conditions.map(condition => (
                                     <option key={condition} value={condition}>{condition}</option>

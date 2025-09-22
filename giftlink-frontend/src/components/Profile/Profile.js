@@ -13,7 +13,7 @@ const Profile = () => {
  const [editMode, setEditMode] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    const authtoken = sessionStorage.getItem("auth-token");
+    const authtoken = sessionStorage.getItem("token");
     if (!authtoken) {
       navigate("/app/login");
     } else {
@@ -23,23 +23,22 @@ const Profile = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const authtoken = sessionStorage.getItem("auth-token");
+      const authtoken = sessionStorage.getItem("token");
       const email = sessionStorage.getItem("email");
-      const name=sessionStorage.getItem('name');
+      const name = sessionStorage.getItem('name');
       if (name || authtoken) {
-                const storedUserDetails = {
-                  name: name,
-                  email:email
-                };
-
-                setUserDetails(storedUserDetails);
-                setUpdatedDetails(storedUserDetails);
-              }
-} catch (error) {
-  console.error(error);
-  // Handle error case
-}
-};
+        const storedUserDetails = {
+          name: name,
+          email: email
+        };
+        setUserDetails(storedUserDetails);
+        setUpdatedDetails(storedUserDetails);
+      }
+    } catch (error) {
+      console.error(error);
+      // Handle error case
+    }
+  };
 
 const handleEdit = () => {
 setEditMode(true);
@@ -55,8 +54,8 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const authtoken = sessionStorage.getItem("auth-token");
-    const email = sessionStorage.getItem("email");
+  const authtoken = sessionStorage.getItem("token");
+  const email = sessionStorage.getItem("email");
 
     if (!authtoken || !email) {
       navigate("/app/login");
